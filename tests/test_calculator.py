@@ -1,5 +1,5 @@
 import pytest
-from calc.calculator import add, subtract, multiply, divide
+from calc.calculator import add, subtract, multiply, divide, power, root
 
 def test_add():
     assert add(1, 2) == 3
@@ -21,3 +21,13 @@ def test_divide():
     with pytest.raises(ValueError):
         divide(10, 0)
     assert divide(-4, 2) == -2
+
+def test_power():
+    assert power(2, 2) == 4
+    assert power(2, 3) == 8
+    assert power(2, 4) == 16
+
+def test_root():
+    assert root(4, 2) == 2
+    assert root(8, 3) == 2
+    assert root(16, 4) == 2
