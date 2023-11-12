@@ -22,3 +22,14 @@ jobs:
       run: |
         python setup.py sdist bdist_wheel
         twine upload --repository testpypi dist/* --skip-existing --non-interactive -u __token__ -p $PYPI_API_TOKEN
+    - name: Extract version
+      id: get_version
+      run: |
+        echo "PACKAGE_VERSION=$(grep 'version=' setup.py | cut -d'=' -f2)" >> $GITHUB_ENV
+    - name: Notify Discord
+      if: success()
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+      run: |
+        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"A new release v$PACKAGE_VERSION has been uploaded to PyPI: [Check it out!](https://test.pypi.org/project/CalcPy/)\"}" $DISCORD_WEBHOOK_URL
