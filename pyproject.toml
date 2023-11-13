@@ -25,3 +25,9 @@ commit_message = "Bump version: {old_version} → {new_version}"
 commit = false
 tag = false
 push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"',
+] # Let bumpver know where to look for the version number
