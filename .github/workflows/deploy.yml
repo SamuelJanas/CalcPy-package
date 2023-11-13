@@ -23,7 +23,7 @@ jobs:
     - name: Extract version
       id: get_version
       run: |
-        echo "PACKAGE_VERSION=$(bumpver show | grep -oP 'Current Version: \K.*')" >> $GITHUB_ENV
+        echo "PACKAGE_VERSION=$(bumpver show -n | grep -oP 'Current Version: \K.*')" >> $GITHUB_ENV
 
     - name: Build package
       run: |
