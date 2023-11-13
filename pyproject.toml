@@ -19,7 +19,7 @@ classifiers = [
 Homepage = "https://github.com/SamuelJanas/CalcPy-package"
 
 [tool.bumpver]
-current_version = "0.2.3"
+current_version = "0.2.4"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "Bump version: {old_version} → {new_version}"
 commit = false
