@@ -20,20 +20,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install build twine bumpver
 
-    - name: Build package
-      run: |
-        python -m build
-
     - name: Extract version
       id: get_version
       run: |
-        echo "PACKAGE_VERSION=$(bumpver show | grep -oP 'Current Version: \K.*')" >> $GITHUB_ENV
+        echo "PACKAGE_VERSION=$(bumpver show | grep -oP 'Current Version: \K.*')" >> $GITHUB_ENV        
+
+    - name: Build package
+      run: |
+        python -m build
 
     - name: Publish to PyPI
       env:
         PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
       run: |
-        twine upload --repository testpypi dist/* --skip-existing --non-interactive -u __token__ -p $PYPI_API_TOKEN
+        twine upload -r testpypi dist/*
 
     - name: Notify Discord
       if: success()

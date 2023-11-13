@@ -7,6 +7,6 @@ RELEASE_MESSAGE="Latest release"
 git flow release finish -m "$RELEASE_MESSAGE"
 
 # Optional: push the changes to the remote repository
-git push origin --tags
 git push origin develop
-git push origin master
+git push origin main
+git push --tags
