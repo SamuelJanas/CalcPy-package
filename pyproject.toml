@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "CalcPy"
-version = "0.2.3"
+version = "0.2.7"
 description = "A simple calculator library"
 readme = "README.md"
 authors = [{name = "SamuelJanas", email = "sneakyinsect@gmail.com"}]
@@ -19,7 +19,7 @@ classifiers = [
 Homepage = "https://github.com/SamuelJanas/CalcPy-package"
 
 [tool.bumpver]
-current_version = "0.2.3"
+current_version = "0.2.7"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "Bump version: {old_version} → {new_version}"
 commit = false
